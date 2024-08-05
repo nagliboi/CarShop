@@ -22,7 +22,7 @@ public class CustomerController {
 
     @PutMapping
     public Customer updateCustomer(@RequestBody Customer customer) {
-       return customerService.updateCustomer(customer);
+        return customerService.updateCustomer(customer);
     }
 
     @GetMapping
@@ -34,4 +34,10 @@ public class CustomerController {
     public Customer getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
+
+    @PutMapping("/{id}")
+    public String updateLicense(@PathVariable Long id) {
+        return customerService.updateLicense(id);
+    }
+
 }

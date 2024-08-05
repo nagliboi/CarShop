@@ -15,6 +15,9 @@ public class CustomerService {
     CustomerRepository customerRepository;
 
     public Customer createCustomer(Customer customer) {
+        if (customer.getLicensed() == null){
+            customer.setLicensed(false);
+        }
         return customerRepository.save(customer);
     }
 
@@ -32,5 +35,24 @@ public class CustomerService {
 
     public Customer getCustomerById(Long id) {
         return customerRepository.findById(id).orElseThrow(CustomerNotFoundException::new);
+    }
+
+    public String updateLicense (Long id){
+        Customer customer = getCustomerById(id);
+        if (customer == null) {
+            throw new CustomerNotFoundException();
+        }
+        if (customer.getLicensed()){
+            customer.setLicensed(false);
+            customerRepository.save(customer);
+            return "License has been revoked for customer " + customer.getId();
+        }else {
+            customer.setLicensed(true);
+            customerRepository.save(customer);
+            return "License has been revoked for customer " + customer.getId();
+        }
+
+
+
     }
 }
