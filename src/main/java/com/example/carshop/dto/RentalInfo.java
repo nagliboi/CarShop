@@ -7,6 +7,9 @@ import lombok.Setter;
 @Setter
 public class RentalInfo {
 
+    private Long customerId;
     private String customerName;
-    private String car;
+    private String carModel;
+    private String carBrand;
+    private Long carYear;
 }

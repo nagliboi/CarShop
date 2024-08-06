@@ -19,16 +19,22 @@ public class CarCustomer {
     private Long id;
 
     @Column
-    private String customerName;
+    private Long customerID;
 
     @Column
-    private String carModel;
+    private String customerName;
 
     @Column
     private Long carID;
 
     @Column
-    private Long customerID;
+    private String carBrand;
+
+    @Column
+    private String carModel;
+
+    @Column
+    private Long carYear;
 
 
 }

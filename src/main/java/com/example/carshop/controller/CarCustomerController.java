@@ -14,8 +14,8 @@ public class CarCustomerController {
     @Autowired
     CarCustomerService carCustomerService;
 
-//    @PostMapping
-//    public CarCustomer rentCar (@RequestBody RentalInfo rentalInfo) {
-//        carCustomerService.addCarCustomer(rentalInfo.getCustomerName(), rentalInfo.getCar());
-//    }
+    @PostMapping
+    public CarCustomer rentCar (@RequestBody RentalInfo rentalInfo) {
+        return carCustomerService.addCarCustomer(rentalInfo.getCustomerId(), rentalInfo.getCustomerName(), rentalInfo.getCarBrand(), rentalInfo.getCarModel(), rentalInfo.getCarYear());
+    }
 }

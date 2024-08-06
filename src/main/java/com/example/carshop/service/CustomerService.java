@@ -49,7 +49,7 @@ public class CustomerService {
         }else {
             customer.setLicensed(true);
             customerRepository.save(customer);
-            return "License has been revoked for customer " + customer.getId();
+            return "License has been granted for customer " + customer.getId();
         }
 
 
